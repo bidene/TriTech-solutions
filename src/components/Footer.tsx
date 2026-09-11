@@ -8,18 +8,21 @@ const socialNetworks = [
     name: 'LinkedIn',
     icon: Linkedin,
     color: 'text-blue-600',
+    bgColor: 'bg-blue-50',
     hoverColor: 'hover:bg-blue-600',
   },
   {
     name: 'Twitter',
     icon: Twitter,
     color: 'text-sky-500',
+    bgColor: 'bg-sky-50',
     hoverColor: 'hover:bg-sky-500',
   },
   {
     name: 'Facebook',
     icon: Facebook,
     color: 'text-blue-700',
+    bgColor: 'bg-blue-50',
     hoverColor: 'hover:bg-blue-700',
   },
 ];
@@ -60,7 +63,7 @@ export default function Footer() {
                   <a
                     key={social.name}
                     href="#"
-                    className={`w-9 h-9 rounded-lg bg-neutral-800 ${social.hoverColor} flex items-center justify-center transition-all duration-300`}
+                    className={`w-9 h-9 rounded-lg ${social.bgColor} ${social.hoverColor} flex items-center justify-center transition-all duration-300`}
                     aria-label={social.name}
                   >
                     <Icon className={`w-5 h-5 ${social.color}`} strokeWidth={2} />

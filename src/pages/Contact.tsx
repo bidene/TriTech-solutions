@@ -149,8 +149,8 @@ export default function Contact() {
                   className="card card-hover p-7 group animate-fade-in-up"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.color} flex items-center justify-center mb-5 shadow-lg transition-transform duration-300 group-hover:scale-110`}>
-                    <Icon className="w-7 h-7 text-white" strokeWidth={1.8} />
+                  <div className={`w-14 h-14 rounded-2xl ${card.label === 'WhatsApp' ? 'bg-green-50' : card.label === 'Téléphone' ? 'bg-blue-50' : 'bg-orange-50'} flex items-center justify-center mb-5 shadow-lg transition-transform duration-300 group-hover:scale-110`}>
+                    <Icon className={`w-7 h-7 ${card.label === 'WhatsApp' ? 'text-green-500' : card.label === 'Téléphone' ? 'text-blue-600' : 'text-orange-500'}`} strokeWidth={1.8} />
                   </div>
                   <h3 className="font-display text-lg font-bold text-neutral-900 mb-2">
                     {card.label}
@@ -362,8 +362,8 @@ export default function Contact() {
                 </h3>
                 <ul className="space-y-5">
                   <li className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shrink-0 shadow-lg shadow-primary-500/30">
-                      <Phone className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/20">
+                      <Phone className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
                       <div className="text-xs text-neutral-400 font-semibold uppercase tracking-wide">Téléphone</div>
@@ -373,19 +373,19 @@ export default function Contact() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-500 to-primary-500 flex items-center justify-center shrink-0 shadow-lg shadow-accent-500/30">
-                      <MessageCircle className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center shrink-0 shadow-lg shadow-green-500/20">
+                      <MessageCircle className="w-5 h-5 text-green-500" />
                     </div>
                     <div>
                       <div className="text-xs text-neutral-400 font-semibold uppercase tracking-wide">WhatsApp</div>
-                      <a href={`https://wa.me/${companyInfo.whatsapp.replace(/[\s+]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-neutral-800 hover:text-accent-700 transition-colors">
+                      <a href={`https://wa.me/${companyInfo.whatsapp.replace(/[\s+]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-neutral-800 hover:text-green-600 transition-colors">
                         {companyInfo.whatsapp}
                       </a>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-warning-500 to-orange-500 flex items-center justify-center shrink-0 shadow-lg shadow-warning-500/30">
-                      <Mail className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center shrink-0 shadow-lg shadow-orange-500/20">
+                      <Mail className="w-5 h-5 text-orange-500" />
                     </div>
                     <div>
                       <div className="text-xs text-neutral-400 font-semibold uppercase tracking-wide">Email</div>
@@ -395,8 +395,8 @@ export default function Contact() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/30">
-                      <MapPin className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 rounded-xl bg-cyan-50 flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/20">
+                      <MapPin className="w-5 h-5 text-cyan-500" />
                     </div>
                     <div>
                       <div className="text-xs text-neutral-400 font-semibold uppercase tracking-wide">Adresse</div>
@@ -404,8 +404,8 @@ export default function Contact() {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shrink-0 shadow-lg shadow-purple-500/30">
-                      <Clock className="w-5 h-5 text-white" />
+                    <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center shrink-0 shadow-lg shadow-purple-500/20">
+                      <Clock className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
                       <div className="text-xs text-neutral-400 font-semibold uppercase tracking-wide">Horaires</div>
@@ -422,36 +422,15 @@ export default function Contact() {
                   className="relative h-48 cursor-pointer group"
                   onClick={() => setMapOpen(true)}
                 >
-                  {/* Stylized map preview */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-100 via-neutral-100 to-accent-100">
-                    <div className="absolute inset-0 opacity-30" style={{
-                      backgroundImage: `linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)`,
-                      backgroundSize: '30px 30px',
-                    }} />
-                    {/* Streets */}
-                    <div className="absolute top-1/2 left-0 right-0 h-1 bg-neutral-300/50" />
-                    <div className="absolute top-0 bottom-0 left-1/3 w-1 bg-neutral-300/50" />
-                    <div className="absolute top-1/4 left-0 right-0 h-0.5 bg-neutral-300/30" />
-                    <div className="absolute top-3/4 left-0 right-0 h-0.5 bg-neutral-300/30" />
-
-                    {/* Pin */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <div className="relative">
-                        <div className="absolute inset-0 w-12 h-12 bg-primary-500/30 rounded-full animate-ping" />
-                        <div className="relative w-12 h-12 rounded-full bg-primary-600 flex items-center justify-center shadow-lg shadow-primary-600/40 group-hover:scale-110 transition-transform">
-                          <MapPin className="w-6 h-6 text-white" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                    <div className="flex items-center gap-2 text-white text-sm font-semibold">
-                      <Navigation className="w-4 h-4" />
-                      Voir sur la carte
-                    </div>
-                  </div>
+                  <iframe
+                    title={`Localisation de ${companyInfo.name}`}
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.fullAddress)}&output=embed`}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
 
                 <div className="p-5">
@@ -516,7 +495,8 @@ export default function Contact() {
                 height="100%"
                 style={{ border: 0 }}
                 loading="lazy"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=2.3795%2C6.3268%2C2.4395%2C6.3668&layer=mapnik&marker=6.3468%2C2.4095"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.fullAddress)}&output=embed`}
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
 
@@ -536,12 +516,12 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-neutral-700 hover:text-accent-700 transition-colors font-medium"
                 >
-                  <MessageCircle className="w-4 h-4 text-accent-600" />
+                  <MessageCircle className="w-4 h-4 text-green-500" />
                   WhatsApp
                 </a>
               </div>
               <a
-                href="https://www.openstreetmap.org/?mlat=6.3468&mlon=2.4095#map=15/6.3468/2.4095"
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyInfo.fullAddress)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary text-xs"
