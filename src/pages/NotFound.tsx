@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Home, ArrowRight, Search, FileQuestion } from 'lucide-react';
+import { Home, Search, FileQuestion } from 'lucide-react';
 
 export default function NotFound() {
   const navigate = useNavigate();

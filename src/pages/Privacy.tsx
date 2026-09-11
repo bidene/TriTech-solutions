@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Shield, Lock, Eye, Database, UserCheck, AlertCircle } from 'lucide-react';
 import { companyInfo } from '@/data/site';
 
 export default function Privacy() {
-  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);

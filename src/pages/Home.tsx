@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   ArrowRight,
-  CheckCircle2,
   Star,
   Quote,
   Sparkles,
@@ -66,13 +65,6 @@ const iconBgColors: Record<string, string> = {
   Palette: 'bg-orange-50',
   BarChart3: 'bg-indigo-50',
   Network: 'bg-teal-50',
-};
-
-const processColors: Record<string, string> = {
-  Search: 'from-blue-500 to-cyan-500',
-  Pencil: 'from-purple-500 to-pink-500',
-  Beaker: 'from-green-500 to-emerald-500',
-  Rocket: 'from-orange-500 to-red-500',
 };
 
 const processIconColors: Record<string, string> = {
@@ -322,7 +314,6 @@ export default function Home() {
 
             {processSteps.map((step, i) => {
               const Icon = processIcons[step.icon.name] || step.icon;
-              const colorClass = processColors[step.icon.name] || 'from-primary-500 to-accent-500';
               const iconColorClass = processIconColors[step.icon.name] || 'text-primary-500';
               return (
                 <div

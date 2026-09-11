@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ExternalLink, Github, Calendar, Layers, ArrowRight, Filter, X } from 'lucide-react';
 import { projects, portfolioCategories, Project } from '@/data/portfolio';
@@ -8,6 +8,17 @@ export default function Portfolio() {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('Tous');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  useEffect(() => {
+    if (!selectedProject) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedProject(null);
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedProject]);
 
   const filteredProjects = selectedCategory === 'Tous' 
     ? projects 
@@ -40,6 +51,7 @@ export default function Portfolio() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
+                aria-pressed={selectedCategory === category}
                 className={`px-5 py-2.5 rounded-xl font-medium text-sm transition-all ${
                   selectedCategory === category
                     ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/25'

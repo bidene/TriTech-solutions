@@ -14,7 +14,6 @@ import {
   Loader2,
   Sparkles,
   Shield,
-  Zap,
   AlertCircle,
 } from 'lucide-react';
 import { companyInfo } from '@/data/site';

@@ -1,10 +1,8 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Shield, Scale, FileText } from 'lucide-react';
 import { companyInfo } from '@/data/site';
 
 export default function Legal() {
-  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, []);

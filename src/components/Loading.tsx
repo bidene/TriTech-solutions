@@ -2,7 +2,7 @@ import { Loader2 } from 'lucide-react';
 
 export default function Loading() {
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center">
+    <div className="min-h-screen bg-white flex items-center justify-center" role="status" aria-live="polite">
       <div className="text-center">
         <div className="relative mx-auto w-16 h-16 mb-6">
           <div className="absolute inset-0 rounded-full border-4 border-primary-200" />

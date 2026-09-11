@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ArrowUp } from 'lucide-react';
 
 export default function ScrollToTop({ show }: { show: boolean }) {
-  const navigate = useNavigate();
-  
   useEffect(() => {
     // no-op, visibility controlled by parent
   }, [show]);

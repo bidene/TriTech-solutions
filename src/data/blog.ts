@@ -1,5 +1,3 @@
-import { Calendar, Clock, User } from 'lucide-react';
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -76,7 +74,7 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p>Le DevOps révolutionne la façon dont les équipes développent et déploient des logiciels.</p>
       
-      <h3>Qu\'est-ce que DevOps ?</h3>
+      <h3>Qu'est-ce que DevOps ?</h3>
       <p>DevOps est une culture qui combine le développement (Dev) et les opérations (Ops) pour améliorer la collaboration et l'efficacité.</p>
       
       <h3>Principaux outils</h3>

@@ -1,5 +1,3 @@
-import { ExternalLink, Github } from 'lucide-react';
-
 export interface Project {
   id: string;
   title: string;

@@ -59,6 +59,7 @@ export default function Navbar() {
               <button
                 key={link.path}
                 onClick={() => handleNav(link.path)}
+                aria-current={isActive ? 'page' : undefined}
                 className={`relative px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
                   isActive
                     ? 'text-primary-700 bg-primary-50'
@@ -93,6 +94,8 @@ export default function Navbar() {
         <div className="flex items-center gap-2 lg:hidden">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
             className={`p-2 rounded-lg transition-colors ${scrolled ? 'text-neutral-700 hover:bg-neutral-100' : 'text-white hover:bg-white/10'}`}
             aria-label="Menu"
           >
@@ -103,12 +106,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden glass border-t border-neutral-200/50 animate-fade-in-down">
+        <div id="mobile-navigation" className="lg:hidden glass border-t border-neutral-200/50 animate-fade-in-down">
           <div className="container-page py-6 flex flex-col gap-2">
             {navLinks.map((link) => (
               <button
                 key={link.path}
                 onClick={() => handleNav(link.path)}
+                aria-current={location.pathname === link.path ? 'page' : undefined}
                 className={`text-left px-4 py-3 rounded-xl text-sm font-semibold transition-all ${
                   location.pathname === link.path
                     ? 'text-primary-700 bg-primary-50'
